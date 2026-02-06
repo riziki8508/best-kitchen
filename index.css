@@ -1,0 +1,371 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e67e22;
+    --light-bg: #f4f4f4;
+    --white: #ffffff;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+body { background: var(--light-bg); }
+
+/* Header & Navigation */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.top-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); }
+.logo span { color: var(--accent-color); }
+
+.search-bar { display: flex; flex: 0.5; }
+.search-bar input {
+    width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px 0 0 5px;
+}
+.search-bar button {
+    padding: 0.5rem 1rem; background: var(--accent-color); color: white; border: none; border-radius: 0 5px 5px 0; cursor: pointer;
+}
+
+.navbar {
+    background: var(--primary-color);
+    display: flex; justify-content: center; padding: 0.5rem;
+}
+
+.navbar a {
+    color: white; margin: 0 1.5rem; font-size: 0.9rem;
+}
+
+#menu-btn { font-size: 1.5rem; cursor: pointer; display: none; }
+
+/* Banner Slider Area */
+.home { padding: 0; overflow: hidden; height: 400px; position: relative; }
+.mySlides img { height: 400px; object-fit: cover; }
+.text {
+    position: absolute; bottom: 20%; left: 5%; color: white;
+    font-size: 2rem; background: rgba(0,0,0,0.5); padding: 1rem;
+}
+
+/* Products Section */
+.products { padding: 2rem 5%; }
+.heading { text-align: center; margin-bottom: 2rem; color: var(--primary-color); }
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-box {
+    background: white; padding: 1.5rem; text-align: center;
+    border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+}
+
+.product-box img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 1rem; }
+.btn {
+    display: inline-block; margin-top: 1rem; padding: 0.5rem 1.5rem;
+    background: var(--accent-color); color: white; border-radius: 5px;
+}
+
+/* Footer */
+.footer { background: var(--primary-color); color:black; padding: 2rem 5%; margin-top: 3rem; }
+.box-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;
+}
+.box h3 { padding: 1rem 0; color: var(--accent-color); }
+.box a { display: block; color: #ccc; padding: 0.5rem 0; font-size: 0.8rem; }
+.credit { text-align: center; border-top: 1px solid #444; margin-top: 2rem; padding-top: 1rem; }
+
+/* Responsive (Mobile Screens) */
+@media (max-width: 768px) {
+    #menu-btn { display: block; }
+    .navbar {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: var(--primary-color);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    .navbar.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .navbar a { margin: 1rem; display: block; }
+    .search-bar { display: none; } /* Kwenye simu tunaficha search kwa sasa */
+}
+/* --- SHOPPING CART STYLES --- */
+
+.cart-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+.cart-table {
+    width: 100%;
+    background: var(--white);
+    border-collapse: collapse;
+    border-radius: .8rem;
+    overflow: hidden;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.05);
+}
+
+.cart-table thead {
+    background: var(--dark);
+    color: var(--white);
+}
+
+.cart-table th, 
+.cart-table td {
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-table img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+/* Idadi ya Bidhaa (Quantity) */
+.cart-qty {
+    font-weight: 600;
+    color: var(--dark);
+    background: #f1f1f1;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
+/* Bei na Jumla */
+.cart-price {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* Kitufe cha Kufuta (Delete Icon) */
+.delete-btn {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+    transform: scale(1.2);
+}
+
+/* Sehemu ya Jumla Kuu (Grand Total Section) */
+.cart-total-box {
+    margin-top: 2rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: .8rem;
+    text-align: right;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.05);
+}
+
+.cart-total-box h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+.cart-total-box span {
+    color: var(--orange);
+}
+
+/* Vitufe vya Chini (Bottom Buttons) */
+.cart-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+.btn-clear {
+    background: #95a5a6;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-weight: 600;
+}
+
+.btn-clear:hover {
+    background: #7f8c8d;
+}
+
+.btn-checkout {
+    background: #27ae60;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: .5rem;
+    font-weight: 700;
+}
+
+.btn-checkout:hover {
+    background: #219150;
+    letter-spacing: 1px;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .cart-table thead { display: none; }
+    .cart-table tr { display: block; margin-bottom: 1rem; border: 1px solid #eee; }
+    .cart-table td { display: flex; justify-content: space-between; align-items: center; padding: 1rem; }
+    .cart-table td::before { content: attr(data-label); font-weight: bold; color: var(--dark); }
+    .cart-btns { flex-direction: column; width: 100%; }
+    .btn-clear, .btn-checkout { text-align: center; }
+}
+/* --- HEADER STYLES --- */
+.header .header-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 9%;
+    background: #fff;
+}
+
+.header .header-1 .logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.header .header-1 .logo span { color: #e67e22; }
+
+.header .header-1 .search-form {
+    width: 50rem;
+    height: 4.5rem;
+    border: 0.2rem solid #2c3e50;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+.header .header-1 .search-form input {
+    font-size: 1.6rem;
+    padding: 0 1.2rem;
+    height: 100%;
+    width: 100%;
+    text-transform: none;
+    color: #2c3e50;
+}
+
+.header .header-1 .search-form label {
+    font-size: 2rem;
+    padding-right: 1.5rem;
+    color: #2c3e50;
+    cursor: pointer;
+}
+
+.header .header-1 .icons div,
+.header .header-1 .icons a {
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+    color: #2c3e50;
+    cursor: pointer;
+}
+
+.header .header-1 .icons a span {
+    font-size: 1.5rem;
+    background: #e67e22;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    vertical-align: top;
+}
+
+.header .navbar {
+    background: #2c3e50;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.header .navbar a {
+    color: #fff;
+    font-size: 1.7rem;
+    margin: 0 1.5rem;
+}
+
+.header .navbar a:hover { color: #e67e22; }
+
+/* --- FOOTER STYLES --- */
+.footer {
+    background: #eee;
+    padding: 2rem 9%;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a {
+    display: block;
+    font-size: 1.4rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a i {
+    color: #e67e22;
+    padding-right: .5rem;
+}
+
+.footer .box-container .box a:hover i { padding-right: 2rem; }
+
+.footer .credit {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: .1rem solid rgba(0,0,0,.1);
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+.footer .credit span { color: #e67e22; }
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+@media (max-width: 991px) {
+    .header .header-1 { padding: 2rem; }
+    .header .header-1 .search-form { width: 100%; margin: 2rem 0; }
+}
+
+@media (max-width: 768px) {
+    #menu-btn { display: inline-block; }
+    .header .navbar {
+        position: absolute;
+        top: 115%; right: -100%;
+        background: #fff;
+        width: 30rem;
+        flex-direction: column;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    }
+    .header .navbar.active { right: 2rem; }
+    .header .navbar a {
+        color: #2c3e50;
+        display: block;
+        margin: 2rem;
+        font-size: 2rem;
+    }
+}

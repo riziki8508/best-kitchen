@@ -1,0 +1,124 @@
+/* --- SHOPPING CART STYLES --- */
+
+.cart-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+.cart-table {
+    width: 100%;
+    background: var(--white);
+    border-collapse: collapse;
+    border-radius: .8rem;
+    overflow: hidden;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.05);
+}
+
+.cart-table thead {
+    background: var(--dark);
+    color: var(--white);
+}
+
+.cart-table th, 
+.cart-table td {
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-table img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+/* Idadi ya Bidhaa (Quantity) */
+.cart-qty {
+    font-weight: 600;
+    color: var(--dark);
+    background: #f1f1f1;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
+/* Bei na Jumla */
+.cart-price {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* Kitufe cha Kufuta (Delete Icon) */
+.delete-btn {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+    transform: scale(1.2);
+}
+
+/* Sehemu ya Jumla Kuu (Grand Total Section) */
+.cart-total-box {
+    margin-top: 2rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: .8rem;
+    text-align: right;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.05);
+}
+
+.cart-total-box h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+.cart-total-box span {
+    color: var(--orange);
+}
+
+/* Vitufe vya Chini (Bottom Buttons) */
+.cart-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+.btn-clear {
+    background: #95a5a6;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-weight: 600;
+}
+
+.btn-clear:hover {
+    background: #7f8c8d;
+}
+
+.btn-checkout {
+    background: #27ae60;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: .5rem;
+    font-weight: 700;
+}
+
+.btn-checkout:hover {
+    background: #219150;
+    letter-spacing: 1px;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .cart-table thead { display: none; }
+    .cart-table tr { display: block; margin-bottom: 1rem; border: 1px solid #eee; }
+    .cart-table td { display: flex; justify-content: space-between; align-items: center; padding: 1rem; }
+    .cart-table td::before { content: attr(data-label); font-weight: bold; color: var(--dark); }
+    .cart-btns { flex-direction: column; width: 100%; }
+    .btn-clear, .btn-checkout { text-align: center; }
+}
